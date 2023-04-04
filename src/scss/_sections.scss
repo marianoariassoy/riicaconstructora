@@ -1,0 +1,60 @@
+//Home
+#home {
+  background-color: black;
+  position: relative;
+}
+.home-title {
+  position: absolute;
+  right: 10vw;
+  top: 45%;
+  .home-title-2 {
+    line-height: 1;
+    .line {
+      width: 68px;
+      height: 2px;
+      background-color: white;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+  }
+  .home-title-1 {
+    .iso {
+      margin-top: 26px;
+      margin-right: -12px;
+    }
+  }
+}
+.social-media {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2.5rem;
+  z-index: 2000;
+  a {
+    display: inline-block;
+    margin-right: 0.8rem;
+    height: 22px;
+    width: 22px;
+    svg {
+      height: 100%;
+      width: 100%;
+      fill: #fff;
+      &:hover {
+        fill: $color-primary;
+      }
+    }
+  }
+}
+.whatsapp {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  img {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+.drop-shadow-hover:hover {
+  transition: all 0.2s ease-in-out;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.75));
+}

@@ -1,0 +1,24 @@
+header {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100vw;
+}
+.logo {
+  img {
+    width: 120px;
+  }
+}
+nav {
+  li {
+    display: inline-block;
+    margin-left: 3rem;
+    a {
+      transition: color 0.2s ease-in-out;
+      padding-bottom: 0.4rem;
+      &:hover {
+        border-bottom: 2px solid white;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@font-face {
+  font-display: swap;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 300;
+  src: url("Gotham-Light.woff2") format("woff2"), url("Gotham-Light.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Gotham Bold";
+  font-style: normal;
+  font-weight: bold;
+  src: url("Gotham-Bold.woff2") format("woff2"), url("Gotham-Bold.woff") format("woff");
+}

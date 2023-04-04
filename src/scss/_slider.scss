@@ -1,0 +1,22 @@
+.indicators {
+  bottom: 2.5rem;
+  position: absolute;
+  width: 100%;
+  z-index: 2000;
+  .indicator {
+    border: 1px solid white;
+    cursor: pointer;
+    height: 12px;
+    margin: 0 10px;
+    width: 12px;
+    &:hover {
+      background-color: white;
+    }
+    &.active {
+      background-color: white;
+    }
+  }
+}
+.each-slide-effect {
+  opacity: 0.6;
+}

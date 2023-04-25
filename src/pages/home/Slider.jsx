@@ -3,7 +3,6 @@ import "react-slideshow-image/dist/styles.css";
 
 const Slider = () => {
   const images = ["./assets/home1.jpg"];
-
   const indicators = () => <div className="indicator"> </div>;
 
   return (
@@ -58,7 +57,7 @@ const Slider = () => {
         </a>
       </div>
 
-      <div className="whatsapp ">
+      <div className="whatsapp z-30">
         <a href="https://wa.me/5493516150000" target="_blank" rel="noreferrer">
           <img src="./assets/whatsapp.svg" alt="Whatsapp" className="drop-shadow-hover drop-shadow" />
         </a>

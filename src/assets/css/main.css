@@ -31,6 +31,29 @@ a {
   color: #0ba659;
 }
 
+.btn {
+  padding: 0.7rem 1.3rem;
+}
+.btn:hover {
+  color: white;
+  background-color: #0ba659;
+}
+
+.svg-hover svg {
+  fill: white;
+}
+.svg-hover svg:hover {
+  fill: #0ba659;
+}
+
+.link-hover:hover {
+  color: #0ba659;
+}
+
+.bg-gray-700 {
+  background-color: #4e5252 !important;
+}
+
 .text-primary {
   color: #0ba659;
 }
@@ -169,6 +192,21 @@ nav li a:hover {
   fill: #0ba659;
 }
 
+.social-media-footer a {
+  display: inline-block;
+  margin-right: 0.8rem;
+  height: 22px;
+  width: 22px;
+}
+.social-media-footer a svg {
+  height: 100%;
+  width: 100%;
+  fill: #fff;
+}
+.social-media-footer a svg:hover {
+  fill: #0ba659;
+}
+
 .whatsapp {
   position: fixed;
   bottom: 2.5rem;
@@ -182,6 +220,27 @@ nav li a:hover {
 .drop-shadow-hover:hover {
   transition: all 0.2s ease-in-out;
   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.75));
+}
+
+.novedades-item:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+input,
+textarea {
+  border: 2px solid black;
+  border-radius: 0;
+  padding: 12px 20px;
+  color: black;
+  font-family: inherit;
+}
+
+button {
+  padding: 1rem 2rem;
+  display: block;
+}
+button:hover {
+  background-color: #2d302f;
 }
 
 .indicators {

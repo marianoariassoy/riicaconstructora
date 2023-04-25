@@ -1,3 +1,4 @@
+import Layout from "../../components/Layout";
 import Slider from "./Slider";
 import Desarrollos from "./Desarrollos";
 import Estadisticas from "./Estadisticas";
@@ -9,13 +10,15 @@ import Novedades from "./Novedades";
 const Home = () => {
   return (
     <>
-      <Slider />
-      <Estadisticas />
-      <Desarrollos />
-      <Proyectos />
-      <Nosotros />
-      <Novedades />
-      <Contacto />
+      <Layout>
+        <Slider />
+        <Estadisticas />
+        <Desarrollos />
+        <Proyectos />
+        <Nosotros />
+        <Novedades />
+        <Contacto />
+      </Layout>
     </>
   );
 };

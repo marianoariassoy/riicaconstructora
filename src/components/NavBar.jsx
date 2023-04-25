@@ -8,7 +8,6 @@ const NavBar = () => {
       <a href="#home" className="logo scroll hover:opacity-60">
         <img src="./assets/logo.svg" alt="Riica Constructora Logo" />
       </a>
-
       <nav>
         <ul>
           <li>
@@ -17,7 +16,7 @@ const NavBar = () => {
             </a>
           </li>
           <li>
-            <a href="#desarrollo" className="text-white">
+            <a href="#desarrollos" className="text-white">
               Desarrollos
             </a>
           </li>

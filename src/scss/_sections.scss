@@ -44,6 +44,22 @@
     }
   }
 }
+.social-media-footer {
+  a {
+    display: inline-block;
+    margin-right: 0.8rem;
+    height: 22px;
+    width: 22px;
+    svg {
+      height: 100%;
+      width: 100%;
+      fill: #fff;
+      &:hover {
+        fill: $color-primary;
+      }
+    }
+  }
+}
 .whatsapp {
   position: fixed;
   bottom: 2.5rem;
@@ -53,8 +69,25 @@
     width: 60px;
   }
 }
-
 .drop-shadow-hover:hover {
   transition: all 0.2s ease-in-out;
   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.75));
+}
+.novedades-item:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+input,
+textarea {
+  border: 2px solid black;
+  border-radius: 0;
+  padding: 12px 20px;
+  color: black;
+  font-family: inherit;
+}
+button {
+  padding: 1rem 2rem;
+  display: block;
+  &:hover {
+    background-color: $color-secondary;
+  }
 }

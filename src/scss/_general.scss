@@ -30,8 +30,30 @@ a {
 .link-primary {
   color: $color-primary;
 }
+.btn {
+  padding: 0.7rem 1.3rem;
+  &:hover {
+    color: white;
+    background-color: $color-primary;
+  }
+}
+.svg-hover {
+  svg {
+    fill: white;
+    &:hover {
+      fill: $color-primary;
+    }
+  }
+}
+.link-hover:hover {
+  color: $color-primary;
+}
 
 //Colors
+
+.bg-gray-700 {
+  background-color: #4e5252 !important;
+}
 
 .text-primary {
   color: $color-primary;

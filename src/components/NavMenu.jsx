@@ -1,20 +1,23 @@
-//Dependencies
 import { useEffect } from "react";
 import { gsap } from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-let menuOpen = false;
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 const NavMenu = () => {
+  let menuOpen = false;
+
+  const OpenMenu = () => {
+    menuOpen ? (menuOpen = false) : (menuOpen = true);
+    document.querySelector("nav").classList.toggle("fade-in-2");
+    document.querySelector("#nav-menu").classList.toggle("active");
+  };
+
   useEffect(() => {
     let windowsWidth = screen.width;
-
     gsap.registerPlugin(ScrollToPlugin);
     gsap.registerPlugin(ScrollTrigger);
 
     let links = gsap.utils.toArray("header nav a");
-
     links.forEach((a) => {
       let element = document.querySelector(a.getAttribute("href")),
         linkST = ScrollTrigger.create({
@@ -53,27 +56,16 @@ const NavMenu = () => {
 
     function setActive(link) {
       links.forEach((el) => {
-        el.classList.remove("font-bold");
+        el.classList.remove("active-nav");
       });
-
-      link.classList.add("font-bold");
+      link.classList.add("active-nav");
       if (windowsWidth < 980 && menuOpen) {
-        const menu = document.querySelector("nav");
-        const navMenu = document.querySelector("#nav-menu");
-        menu.classList.toggle("block");
-        navMenu.classList.toggle("active");
+        document.querySelector("nav").classList.toggle("fade-in-2");
+        document.querySelector("#nav-menu").classList.toggle("active");
         menuOpen = false;
       }
     }
   }, []);
-
-  const OpenMenu = () => {
-    menuOpen ? (menuOpen = false) : (menuOpen = true);
-    const menu = document.querySelector("nav");
-    const navMenu = document.querySelector("#nav-menu");
-    menu.classList.toggle("block");
-    navMenu.classList.toggle("active");
-  };
 
   return (
     <div id="nav-menu" onClick={OpenMenu}>

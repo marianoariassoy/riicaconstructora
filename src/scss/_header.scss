@@ -1,15 +1,29 @@
 header {
   position: fixed;
   top: 0;
-  z-index: 1000;
+  z-index: 5000;
   width: 100vw;
 }
 .logo {
   img {
     width: 120px;
+    @media (max-width: 980px) {
+      width: 110px;
+    }
   }
 }
 nav {
+  @media (max-width: 980px) {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $color-primary;
+    left: 0;
+    height: 100vh;
+    text-align: center;
+    place-content: center;
+  }
   li {
     display: inline-block;
     margin-left: 3rem;
@@ -20,5 +34,46 @@ nav {
         border-bottom: 2px solid white;
       }
     }
+    @media (max-width: 980px) {
+      display: block;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 1rem;
+      font-size: 1.7rem;
+      font-family: $font-bold;
+    }
+  }
+}
+
+.active-nav {
+  border-bottom: 2px solid white;
+}
+
+.header-dark {
+  nav {
+    li {
+      a {
+        color: black;
+      }
+    }
+  }
+  .active-nav {
+    border-bottom: 2px solid black;
+  }
+  #nav-menu > span {
+    background-color: black;
+  }
+}
+
+.fade-in-2 {
+  display: grid;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

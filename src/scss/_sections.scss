@@ -23,6 +23,9 @@
       margin-right: -12px;
     }
   }
+  @media (max-width: 980px) {
+    right: 2.5rem;
+  }
 }
 .social-media {
   position: absolute;
@@ -62,11 +65,14 @@
 }
 .whatsapp {
   position: fixed;
-  bottom: 2.5rem;
+  bottom: 2rem;
   right: 2.5rem;
   img {
     height: 60px;
     width: 60px;
+  }
+  @media (max-width: 980px) {
+    width: 3.3rem;
   }
 }
 .drop-shadow-hover:hover {
@@ -89,5 +95,30 @@ button {
   display: block;
   &:hover {
     background-color: $color-secondary;
+  }
+}
+.indicator {
+  @media (max-width: 980px) {
+    display: none;
+  }
+}
+.text-9xl {
+  @media (max-width: 980px) {
+    font-size: 6rem;
+  }
+}
+.text-7xl {
+  @media (max-width: 980px) {
+    font-size: 3.5rem;
+  }
+}
+.text-3xl {
+  @media (max-width: 980px) {
+    font-size: 1.6rem;
+  }
+}
+.text-2xl {
+  @media (max-width: 980px) {
+    font-size: 1.2rem;
   }
 }

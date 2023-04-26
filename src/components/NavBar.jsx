@@ -2,16 +2,15 @@ import NavMenu from "./NavMenu";
 
 const NavBar = () => {
   return (
-    <div className="w-full flex justify-between items-center p-10">
-      <NavMenu />
-
+    <div className="w-full flex justify-between items-center p-10 pb-6">
       <a href="#home" className="logo scroll hover:opacity-60">
-        <img src="./assets/logo.svg" alt="Riica Constructora Logo" />
+        <img src="./assets/logo.svg" alt="Riica Constructora Logo" id="logo" />
       </a>
+      <NavMenu />
       <nav>
         <ul>
           <li>
-            <a href="#home" className="text-white font-bold">
+            <a href="#home" className="text-white">
               Home
             </a>
           </li>

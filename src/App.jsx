@@ -1,7 +1,5 @@
-//Components
 import Home from "./pages/home/Home";
 
-//Utilities
 import GsapUtils from "./utils/GsapUtils";
 
 const App = () => {

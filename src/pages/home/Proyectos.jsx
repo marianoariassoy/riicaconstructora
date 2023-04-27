@@ -48,7 +48,7 @@ const Proyectos = () => {
               <div className="proyectos-container relative h-full w-full bg-black bg-opacity-60">
                 <div className="absolute bottom-4 lg:top-52 lg:flex items-start justify-between w-full p-10 gs_reveal">
                   <h2 className="text-4xl font-bold text-primary mb-12">{slideImage.caption}</h2>
-                  <Link to={`./proyectos/${slideImage.id}`} className="font-bold bg-white text-sm text-primary btn hover:shadow-xl transition">
+                  <Link to={`/proyectos/${slideImage.id}`} className="font-bold bg-white text-sm text-primary btn hover:shadow-xl transition">
                     VER MÁS
                   </Link>
                 </div>

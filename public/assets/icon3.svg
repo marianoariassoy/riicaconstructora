@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="uuid-3ed6a7d4-13c6-4157-842c-244c73d8e15c" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="54.4" height="54.4" viewBox="0 0 54.4 54.4">
-  <g id="uuid-5265548a-fc60-4ab0-bbb6-b73fa1b85231" data-name="Capa 1">
-    <g>
-      <path d="M2,27.2C2,13.3,13.3,2,27.2,2s25.2,11.3,25.2,25.2-11.3,25.2-25.2,25.2-11.5-2.1-15.8-5.6-4.2-4.1-5.7-6.6" style="fill: none; stroke: #2d302f; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
-      <polyline points="4.1 48.4 4.3 42.5 4.4 36.5 9.5 39.6 14.6 42.7" style="fill: none; stroke: #2d302f; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
-      <polyline points="18.9 26.4 25.4 32.9 38 20.3" style="fill: none; stroke: #2d302f; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
-    </g>
-  </g>
+<svg id="uuid-51fc335d-f1c0-41f3-a396-038bc64e76d5" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">
+  <path d="M2,27C2,13.2,13.2,2,27,2s25,11.2,25,25-11.2,25-25,25-11.4-2.1-15.7-5.6-4.2-4-5.7-6.5" style="fill: none; stroke: #2d302f; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polyline points="4.1 48 4.3 42.2 4.4 36.3 9.4 39.3 14.5 42.4" style="fill: none; stroke: #2d302f; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="18.8 26.2 25.2 32.7 37.8 20.2" style="fill: none; stroke: #2d302f; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
 </svg>

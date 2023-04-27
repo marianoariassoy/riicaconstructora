@@ -43,12 +43,12 @@ const Slider = () => {
 
       <div className="home-title text-white opacity-0">
         <div className="home-title-1 mb-1 flex items-start">
-          <div className="iso bg-primary flex items-center justify-center w-8 h-8">
+          {/* <div className="iso bg-primary flex items-center justify-center w-8 h-8">
             <img src="./assets/icon-main.svg" width="6" />
-          </div>
-          <h1 className="text-9xl font-bold">Italo</h1>
+          </div> */}
+          <h1 className="text-8xl font-bold bg-icon">Italo</h1>
         </div>
-        <div className="home-title-2 text-3xl">
+        <div className="home-title-2 text-2xl">
           Proyectos <br /> de principio <br /> <div className="line"></div> a fin.
         </div>
       </div>

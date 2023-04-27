@@ -1,41 +1,78 @@
+import { Link } from "react-router-dom";
+
 const Footer = ({ section }) => {
   return (
     <footer className="bg-secondary p-10">
       <img src="../assets/logo.svg" className="mb-4" alt="Riica Constructora Logo" />
       <div className="flex justify-between items-start">
         <div>
-          <ul className="nav-footer">
-            <li className="mb-1">
-              <a href="#home" className="text-white scroll">
-                Home
-              </a>
-            </li>
-            <li className="mb-1">
-              <a href="#desarrollos" className="text-white scroll">
-                Desarrollos
-              </a>
-            </li>
-            <li className="mb-1">
-              <a href="#proyectos" className="text-white scroll">
-                Proyectos Terminados
-              </a>
-            </li>
-            <li className="mb-1">
-              <a href="#nosotros" className="text-white scroll">
-                Somos Riica
-              </a>
-            </li>
-            <li className="mb-1">
-              <a href="#novedades" className="text-white scroll">
-                Novedades
-              </a>
-            </li>
-            <li className="mb-1">
-              <a href="#contacto" className="text-white scroll">
-                Contacto
-              </a>
-            </li>
-          </ul>
+          {section ? (
+            <ul className="nav-footer">
+              <li className="mb-1">
+                <a href="#home" className="text-white scroll">
+                  Home
+                </a>
+              </li>
+              <li className="mb-1">
+                <a href="#desarrollos" className="text-white scroll">
+                  Desarrollos
+                </a>
+              </li>
+              <li className="mb-1">
+                <a href="#proyectos" className="text-white scroll">
+                  Proyectos Terminados
+                </a>
+              </li>
+              <li className="mb-1">
+                <a href="#nosotros" className="text-white scroll">
+                  Somos Riica
+                </a>
+              </li>
+              <li className="mb-1">
+                <a href="#novedades" className="text-white scroll">
+                  Novedades
+                </a>
+              </li>
+              <li className="mb-1">
+                <a href="#contacto" className="text-white scroll">
+                  Contacto
+                </a>
+              </li>
+            </ul>
+          ) : (
+            <ul>
+              <li>
+                <Link to="/" className="text-white">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/desarrollos" className="text-white">
+                  Desarrollos
+                </Link>
+              </li>
+              <li>
+                <Link to="/proyectos" className="text-white">
+                  Proyectos Terminados
+                </Link>
+              </li>
+              <li>
+                <Link to="/nosotros" className="text-white">
+                  Somos Riica
+                </Link>
+              </li>
+              <li>
+                <Link to="/novedades" className="text-white">
+                  Novedades
+                </Link>
+              </li>
+              <li>
+                <Link to="/contacto" className="text-white">
+                  Contacto
+                </Link>
+              </li>
+            </ul>
+          )}
         </div>
         <div className="social-media-footer flex items-center justify-start">
           <a href="https://www.facebook.com/riicaconstructora" target="_blank" rel="noreferrer">

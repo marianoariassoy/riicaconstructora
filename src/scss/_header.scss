@@ -26,7 +26,7 @@ nav {
   }
   li {
     display: inline-block;
-    margin-left: 3rem;
+    margin-left: 2.8rem;
     a {
       transition: color 0.2s ease-in-out;
       padding-bottom: 0.4rem;
@@ -44,16 +44,17 @@ nav {
     }
   }
 }
-
 .active-nav {
   border-bottom: 2px solid white;
 }
-
 .header-dark {
   nav {
     li {
       a {
         color: black;
+        &:hover {
+          border-bottom: 2px solid black;
+        }
       }
     }
   }
@@ -63,8 +64,20 @@ nav {
   #nav-menu > span {
     background-color: black;
   }
+  #nav-menu.active > span:nth-child(1),
+  #nav-menu.active > span:nth-child(3) {
+    background-color: black;
+  }
 }
-
+.nav-footer {
+  li {
+    a {
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
 .fade-in-2 {
   display: grid;
   animation: fadeIn 0.3s ease;

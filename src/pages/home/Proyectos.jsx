@@ -12,14 +12,14 @@ const Proyectos = () => {
         </svg>
       </a>
 
-      <article
+      <div
         className="proyectos-item h-full bg-cover bg-center"
         style={{ backgroundImage: `url("https://images.unsplash.com/photo-1643447727844-1e2e31544237?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80")` }}
       >
         <div className="proyectos-container text-white h-full w-full flex lg:items-center justify-center bg-opacity-60 bg-black p-10">
           <div className="container max-w-4xl gs_reveal pt-24 pb-24">
             <h1 className="text-2xl">Proyectos</h1>
-            <h2 className="text-7xl font-bold mb-8 lg:mb-20">Terminados</h2>
+            <h2 className="text-7xl font-bold mb-4 lg:mb-20">Terminados</h2>
             <div className="w-full lg:flex justify-between items-start">
               <div>
                 <h2 className="text-3xl font-bold text-primary mb-8">Adolfo Güemes 367</h2>
@@ -32,7 +32,7 @@ const Proyectos = () => {
             </div>
           </div>
         </div>
-      </article>
+      </div>
     </section>
   );
 };

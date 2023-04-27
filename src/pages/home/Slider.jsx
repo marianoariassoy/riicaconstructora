@@ -13,15 +13,12 @@ const Slider = () => {
       .to(".indicator", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25");
   }, []);
 
-  const images = ["./assets/home1.jpg"];
+  const images = ["https://images.unsplash.com/photo-1681465766418-6474cfdcbb3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80"];
   const indicators = () => <div className="indicator opacity-0"> </div>;
 
   return (
     <section id="home">
       <Slide indicators={indicators} arrows={false} id="slide-home">
-        <div className="each-slide-effect">
-          <div style={{ backgroundImage: `url(${images[0]})` }} className="h-screen bg-cover bg-center"></div>
-        </div>
         <div className="each-slide-effect">
           <div style={{ backgroundImage: `url(${images[0]})` }} className="h-screen bg-cover bg-center"></div>
         </div>

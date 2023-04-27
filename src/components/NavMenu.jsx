@@ -17,7 +17,7 @@ const NavMenu = () => {
     gsap.registerPlugin(ScrollToPlugin);
     gsap.registerPlugin(ScrollTrigger);
 
-    let links = gsap.utils.toArray("header nav a");
+    let links = gsap.utils.toArray(".nav-a");
     links.forEach((a) => {
       let element = document.querySelector(a.getAttribute("href")),
         linkST = ScrollTrigger.create({

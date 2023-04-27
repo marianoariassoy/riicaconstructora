@@ -10,8 +10,8 @@ const Desarrollos = () => {
         scrollTrigger: {
           trigger: "#desarrollos",
           markers: false,
-          start: "-300px top",
-          toogleActions: "start restart",
+          start: "top 60%",
+          toggleActions: "play pause play restart",
         },
       })
       .to(".barra-progreso-avance", { width: "80%", duration: 2, ease: "inOut" });
@@ -19,7 +19,7 @@ const Desarrollos = () => {
 
   return (
     <section className="lg:h-screen relative bg-secondary" id="desarrollos">
-      <article className="desarrollos-item text-white lg:flex h-full">
+      <div className="desarrollos-item text-white lg:flex h-full">
         <div className="desarrollos-item-col1 p-10 pt-28 lg:pb-20 lg:w-1/2">
           <div className="desarrollos-item-col1-row1 h-3/5">
             <h1 className="text-7xl font-bold mb-2">Rii28</h1>
@@ -63,7 +63,7 @@ const Desarrollos = () => {
             <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=958&q=80" alt="" className="w-full h-full aspect-square object-cover" />
           </div>
         </div>
-      </article>
+      </div>
 
       <div className="desarrollos-nav lg:absolute bottom-4 p-10 flex items-center">
         <a href="#" className="mr-3 svg-hover">

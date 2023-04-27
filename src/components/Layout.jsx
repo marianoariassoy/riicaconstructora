@@ -1,15 +1,15 @@
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, section }) => {
   return (
     <>
       <header>
-        <NavBar />
+        <NavBar section={section} />
       </header>
       <main>{children}</main>
       <footer>
-        <Footer />
+        <Footer section={section} />
       </footer>
     </>
   );

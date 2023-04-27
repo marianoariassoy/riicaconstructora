@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap");
 html,
 body {
-  accent-color: #0ba659;
+  accent-color: #0ba659 !important;
   color: #000000;
   font-family: "Gotham";
   -webkit-font-smoothing: antialiased;
@@ -101,7 +101,7 @@ header {
 }
 nav li {
   display: inline-block;
-  margin-left: 3rem;
+  margin-left: 2.8rem;
 }
 nav li a {
   transition: color 0.2s ease-in-out;
@@ -128,11 +128,22 @@ nav li a:hover {
 .header-dark nav li a {
   color: black;
 }
+.header-dark nav li a:hover {
+  border-bottom: 2px solid black;
+}
 .header-dark .active-nav {
   border-bottom: 2px solid black;
 }
 .header-dark #nav-menu > span {
   background-color: black;
+}
+.header-dark #nav-menu.active > span:nth-child(1),
+.header-dark #nav-menu.active > span:nth-child(3) {
+  background-color: black;
+}
+
+.nav-footer li a:hover {
+  color: #0ba659;
 }
 
 .fade-in-2 {

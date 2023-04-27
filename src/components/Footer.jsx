@@ -1,9 +1,7 @@
-import React from "react";
-
-const Footer = () => {
+const Footer = ({ section }) => {
   return (
     <footer className="bg-secondary p-10">
-      <img src="./assets/logo.svg" className="mb-4" alt="Riica Constructora Logo" />
+      <img src="../assets/logo.svg" className="mb-4" alt="Riica Constructora Logo" />
       <div className="flex justify-between items-start">
         <div>
           <ul className="nav-footer">

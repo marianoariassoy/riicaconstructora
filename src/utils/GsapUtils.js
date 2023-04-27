@@ -73,19 +73,19 @@ const GsapUtils = () => {
         },
         onEnter: () => {
           const logo = document.querySelector("#logo");
-          logo.src = "./assets/logo-dark.svg";
+          logo.src = "../assets/logo-dark.svg";
         },
         onLeave: () => {
           const logo = document.querySelector("#logo");
-          logo.src = "./assets/logo.svg";
+          logo.src = "../assets/logo.svg";
         },
         onEnterBack: () => {
           const logo = document.querySelector("#logo");
-          logo.src = "./assets/logo-dark.svg";
+          logo.src = "../assets/logo-dark.svg";
         },
         onLeaveBack: () => {
           const logo = document.querySelector("#logo");
-          logo.src = "./assets/logo.svg";
+          logo.src = "../assets/logo.svg";
         },
         markers: false,
       });

@@ -3,18 +3,19 @@ import { gsap } from "gsap";
 
 const Nosotros = () => {
   useEffect(() => {
-    gsap.utils.toArray("article").forEach(function (elem) {
-      gsap.fromTo(
-        elem,
-        { autoAlpha: 0 },
-        {
-          duration: 1,
-          autoAlpha: 1,
-          ease: "none",
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#nosotros",
+          start: "top 20%",
+          markers: false,
+          toggleActions: "play pause play restart",
         },
-        "-=0.5"
-      );
-    });
+      })
+      .to("#team-1", { opacity: 1, duration: 0.5, ease: "none" })
+      .to("#team-3", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25")
+      .to("#team-2", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25")
+      .to("#team-4", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25");
   }, []);
 
   return (
@@ -27,7 +28,7 @@ const Nosotros = () => {
           confianza en su inversión.
         </p>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0">
+          <div className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-1">
             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover" />
             <div className="txt bg-primary p-4 text-white h-36">
               <p className="mb-4">
@@ -35,8 +36,8 @@ const Nosotros = () => {
               </p>
               <p>Arquitecto</p>
             </div>
-          </article>
-          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0">
+          </div>
+          <div className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-2">
             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover grayscale-0" />
             <div className="bg-secondary p-4 text-white h-36">
               <p className="mb-4">
@@ -44,8 +45,8 @@ const Nosotros = () => {
               </p>
               <p>Ingeniero</p>
             </div>
-          </article>
-          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0">
+          </div>
+          <div className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-3">
             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover grayscale-0" />
             <div className="bg-primary p-4 text-white h-36">
               <p className="mb-4">
@@ -53,8 +54,8 @@ const Nosotros = () => {
               </p>
               <p>Arquitecto</p>
             </div>
-          </article>
-          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0">
+          </div>
+          <div className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-4">
             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover" />
             <div className="bg-secondary p-4 text-white h-36">
               <p className="mb-4">
@@ -62,7 +63,7 @@ const Nosotros = () => {
               </p>
               <p>Abogado</p>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>

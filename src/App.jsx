@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import Home from "./pages/home/Home";
 import Novadeades from "./pages/novedades/Novedades";
 import Desarrollos from "./pages/desarrollos/Desarrollos";
@@ -10,7 +9,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home section="home" />} />
           <Route path="/desarrollos" element={<Home section="desarrollos" />} />
           <Route path="/proyectos" element={<Home section="proyectos" />} />
           <Route path="/nosotros" element={<Home section="nosotros" />} />

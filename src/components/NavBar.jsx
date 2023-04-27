@@ -14,7 +14,7 @@ const NavBar = ({ section }) => {
       </a>
       <NavMenu />
       <nav>
-        {section === "home" ? (
+        {section ? (
           <ul>
             <li>
               <a href="#home" className="text-white nav-a">

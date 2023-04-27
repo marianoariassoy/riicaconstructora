@@ -10,7 +10,7 @@ const Novedades = () => {
 
   const indicators = () => <div className="indicator"> </div>;
   return (
-    <Layout section="novedades">
+    <Layout>
       <section className="bg-black">
         <Slide indicators={indicators} arrows={false} id="slide-home">
           <div className="each-slide-effect">

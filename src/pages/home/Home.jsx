@@ -8,15 +8,18 @@ import Novedades from "./Novedades";
 import GsapUtils from "../../utils/GsapUtils";
 import Layout from "../../components/Layout";
 import { gsap } from "gsap";
+import { useEffect } from "react";
 
 const Home = ({ section }) => {
   GsapUtils();
 
-  if (section) gsap.to(window, { duration: 1, scrollTo: `#${section}`, overwrite: "auto" });
+  useEffect(() => {
+    gsap.to(window, { duration: 1, scrollTo: `#${section}`, overwrite: "auto" });
+  }, []);
 
   return (
     <>
-      <Layout section="home">
+      <Layout section={section}>
         <Slider />
         <Estadisticas />
         <Desarrollos />

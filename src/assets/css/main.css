@@ -101,7 +101,7 @@ header {
 }
 nav li {
   display: inline-block;
-  margin-left: 2.8rem;
+  margin-left: 2.6rem;
 }
 nav li a {
   transition: color 0.2s ease-in-out;
@@ -347,6 +347,10 @@ button:hover {
   .text-2xl {
     font-size: 1.2rem;
   }
+}
+
+.nav-slideshow:hover {
+  background-color: transparent;
 }
 
 .indicators {

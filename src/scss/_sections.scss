@@ -122,3 +122,8 @@ button {
     font-size: 1.2rem;
   }
 }
+.nav-slideshow {
+  &:hover {
+    background-color: transparent;
+  }
+}

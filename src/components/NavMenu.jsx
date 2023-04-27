@@ -60,7 +60,7 @@ const NavMenu = () => {
       });
       link.classList.add("active-nav");
       if (windowsWidth < 980 && menuOpen) {
-        document.querySelector("nav").classList.toggle("fade-in-2");
+        document.querySelector("nav").classList.remove("fade-in-2");
         document.querySelector("#nav-menu").classList.toggle("active");
         menuOpen = false;
       }

@@ -28,42 +28,42 @@ const Nosotros = () => {
           confianza en su inversión.
         </p>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          <div className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-1">
+          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-1">
             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover" />
-            <div className="txt bg-primary p-4 text-white h-36">
+            <div className="txt bg-primary p-4 text-white h-28">
               <p className="mb-4">
                 Lucio <span className="font-bold">Mármol</span>
               </p>
               <p>Arquitecto</p>
             </div>
-          </div>
-          <div className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-2">
+          </article>
+          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-2">
             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover grayscale-0" />
-            <div className="bg-secondary p-4 text-white h-36">
+            <div className="bg-secondary p-4 text-white h-28">
               <p className="mb-4">
                 Nestor <span className="font-bold">Riise</span>
               </p>
               <p>Ingeniero</p>
             </div>
-          </div>
-          <div className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-3">
+          </article>
+          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-3">
             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover grayscale-0" />
-            <div className="bg-primary p-4 text-white h-36">
+            <div className="bg-primary p-4 text-white h-28">
               <p className="mb-4">
                 Grabriel <span className="font-bold">Layún</span>
               </p>
               <p>Arquitecto</p>
             </div>
-          </div>
-          <div className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-4">
+          </article>
+          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-4">
             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover" />
-            <div className="bg-secondary p-4 text-white h-36">
+            <div className="bg-secondary p-4 text-white h-28">
               <p className="mb-4">
                 Baltazar <span className="font-bold">Caso Riise</span>
               </p>
               <p>Abogado</p>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>

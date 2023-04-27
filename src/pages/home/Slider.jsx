@@ -13,21 +13,32 @@ const Slider = () => {
       .to(".indicator", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25");
   }, []);
 
-  const images = ["https://images.unsplash.com/photo-1681465766418-6474cfdcbb3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80"];
+  const properties = {
+    arrows: false,
+    transitionDuration: 500,
+    pauseOnHover: false,
+  };
+
+  const slideImages = [
+    {
+      url: "https://images.unsplash.com/photo-1681465766418-6474cfdcbb3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1643447727844-1e2e31544237?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1681465766418-6474cfdcbb3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80",
+    },
+  ];
+
   const indicators = () => <div className="indicator opacity-0"> </div>;
 
   return (
     <section id="home">
-      <Slide indicators={indicators} arrows={false} id="slide-home">
-        <div className="each-slide-effect">
-          <div style={{ backgroundImage: `url(${images[0]})` }} className="h-screen bg-cover bg-center"></div>
-        </div>
-        <div className="each-slide-effect">
-          <div style={{ backgroundImage: `url(${images[0]})` }} className="h-screen bg-cover bg-center"></div>
-        </div>
-        <div className="each-slide-effect">
-          <div style={{ backgroundImage: `url(${images[0]})` }} className="h-screen bg-cover bg-center"></div>
-        </div>
+      <Slide indicators={indicators} {...properties} id="slide-home">
+        {slideImages.map((slideImage, index) => (
+          <div style={{ backgroundImage: `url(${slideImage.url})` }} className="h-screen bg-cover bg-center opacity-60" key={index}></div>
+        ))}
       </Slide>
 
       <div className="home-title text-white opacity-0">

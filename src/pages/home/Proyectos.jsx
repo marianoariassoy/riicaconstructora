@@ -37,7 +37,7 @@ const Proyectos = () => {
 
   return (
     <section className="relative bg-secondary" id="proyectos">
-      <div className="w-full absolute z-50 text-white p-10 pt-28 gs_reveal">
+      <div className="w-full absolute z-30 text-white p-10 pt-28 gs_reveal">
         <h1 className="text-2xl">Proyectos</h1>
         <h2 className="text-7xl font-bold">Terminados</h2>
       </div>

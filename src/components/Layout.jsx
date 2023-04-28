@@ -4,7 +4,7 @@ import Footer from "./Footer";
 const Layout = ({ children, section }) => {
   return (
     <>
-      <header>
+      <header className="z-40">
         <NavBar section={section} />
       </header>
       <main>{children}</main>

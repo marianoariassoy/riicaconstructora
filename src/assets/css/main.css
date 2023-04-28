@@ -73,7 +73,6 @@ a {
 header {
   position: fixed;
   top: 0;
-  z-index: 5000;
   width: 100vw;
 }
 

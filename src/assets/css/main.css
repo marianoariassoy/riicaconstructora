@@ -370,6 +370,15 @@ button:hover {
   }
 }
 
+.bg-icon-home {
+  background-position-y: 26px;
+  padding-left: 16px;
+}
+
+.left-15 {
+  left: 15%;
+}
+
 .indicators {
   bottom: 2.5rem;
   position: absolute;

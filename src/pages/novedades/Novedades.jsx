@@ -62,10 +62,10 @@ const Novedades = () => {
           </a>
         </div>
       </section>
-      <section className="relative">
+      <section className="relative data-dark-header h-screen w-screen">
         <Slide indicators={indicators} {...properties}>
           {slideImages.map((slideImage, index) => (
-            <div style={{ backgroundImage: `url(${slideImage.url})` }} className="h-screen bg-cover bg-center aspect-video" key={index}></div>
+            <div style={{ backgroundImage: `url(${slideImage.url})` }} className="h-screen w-screen bg-cover bg-center aspect-video" key={index}></div>
           ))}
         </Slide>
       </section>

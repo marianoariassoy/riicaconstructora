@@ -1,22 +1,29 @@
 import { useEffect } from "react";
+import useFetch from "../../hooks/useFetch";
+import Loader from "../../components/Loader";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Nosotros = () => {
+  const { data, loading, error } = useFetch(`/staff`);
+  gsap.registerPlugin(ScrollTrigger);
+
   useEffect(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "#nosotros",
-          start: "top 20%",
-          markers: false,
-          toggleActions: "play pause play restart",
-        },
-      })
-      .to("#team-1", { opacity: 1, duration: 0.5, ease: "none" })
-      .to("#team-3", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25")
-      .to("#team-2", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25")
-      .to("#team-4", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25");
-  }, []);
+    if (data)
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#nosotros",
+            start: "top 60%",
+            markers: false,
+            toggleActions: "play pause play restart",
+          },
+        })
+        .to("#team-1", { opacity: 1, duration: 0.5, ease: "inOut" })
+        .to("#team-3", { opacity: 1, duration: 0.5, ease: "inOut" }, "-=0.25")
+        .to("#team-2", { opacity: 1, duration: 0.5, ease: "inOut" }, "-=0.25")
+        .to("#team-4", { opacity: 1, duration: 0.5, ease: "inOut" }, "-=0.25");
+  }, [data]);
 
   return (
     <section className="pt-20 lg:pt-32 lg:pb-16 data-dark-header" id="nosotros">
@@ -27,44 +34,25 @@ const Nosotros = () => {
           En Riica llevamos más de 35 proyectos entregados en tiempo y forma, eligiendo cuidadosamente las mejores ubicaciones de la Ciudad de Salta. Tenemos como misión construir proyectos de calidad para nuestros clientes, generando seguridad y
           confianza en su inversión.
         </p>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-1">
-            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover" />
-            <div className="txt bg-primary p-4 text-white h-28">
-              <p className="mb-4">
-                Lucio <span className="font-bold">Mármol</span>
-              </p>
-              <p>Arquitecto</p>
-            </div>
-          </article>
-          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-2">
-            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover grayscale-0" />
-            <div className="bg-secondary p-4 text-white h-28">
-              <p className="mb-4">
-                Nestor <span className="font-bold">Riise</span>
-              </p>
-              <p>Ingeniero</p>
-            </div>
-          </article>
-          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-3">
-            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover grayscale-0" />
-            <div className="bg-primary p-4 text-white h-28">
-              <p className="mb-4">
-                Grabriel <span className="font-bold">Layún</span>
-              </p>
-              <p>Arquitecto</p>
-            </div>
-          </article>
-          <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-0" id="team-4">
-            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" className="w-full aspect-square object-cover" />
-            <div className="bg-secondary p-4 text-white h-28">
-              <p className="mb-4">
-                Baltazar <span className="font-bold">Caso Riise</span>
-              </p>
-              <p>Abogado</p>
-            </div>
-          </article>
-        </div>
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          "Error al cargar los datos"
+        ) : (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            {data.map((item, index) => (
+              <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-10" id={`team-${index + 1}`} key={item.id}>
+                <img src={item.image} alt={item.name} className="w-full aspect-square object-cover" />
+                <div className="txt bg-primary p-4 text-white h-28">
+                  <p className="mb-4">
+                    {item.name} <span className="font-bold">{item.lastname}</span>
+                  </p>
+                  <p>{item.position}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

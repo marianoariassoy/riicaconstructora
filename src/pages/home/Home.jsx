@@ -5,16 +5,16 @@ import Proyectos from "./Proyectos";
 import Nosotros from "./Nosotros";
 import Contacto from "./Contacto";
 import Novedades from "./Novedades";
-
 import Layout from "../../components/Layout";
 import { gsap } from "gsap";
 import { useEffect } from "react";
+import GsapUtils from "../../utils/GsapUtils";
 
 const Home = ({ section }) => {
   useEffect(() => {
     gsap.to(window, { duration: 1, scrollTo: `#${section}`, overwrite: "auto" });
   }, []);
-
+  GsapUtils();
   return (
     <>
       <Layout section={section}>

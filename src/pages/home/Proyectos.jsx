@@ -1,8 +1,32 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import useFetch from "../../hooks/useFetch";
+import Loader from "../../components/Loader";
+import Error from "../../components/Error";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Proyectos = () => {
+  const { data, loading, error } = useFetch(`/proyectos`);
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    if (data)
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#proyectos",
+            start: "top 60%",
+            markers: false,
+            toggleActions: "play pause play restart",
+          },
+        })
+        .to(".proyectos-title", { opacity: 1, duration: 1, ease: "inOut" })
+        .to(".proyectos-article", { opacity: 1, duration: 1, ease: "inOut" }, "-=0.5");
+  }, [data]);
+
   const properties = {
     prevArrow: (
       <button className="left-10 svg-hover nav-slideshow ">
@@ -22,43 +46,38 @@ const Proyectos = () => {
     autoplay: false,
   };
 
-  const slideImages = [
-    {
-      url: "https://images.unsplash.com/photo-1643447727844-1e2e31544237?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80",
-      caption: "Adolfo Güemes 367",
-      id: 1,
-    },
-    {
-      url: "https://images.unsplash.com/photo-1681465766418-6474cfdcbb3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80",
-      caption: "9 de Julio 1234",
-      id: 2,
-    },
-  ];
-
   return (
     <section className="relative bg-secondary" id="proyectos">
-      <div className="absolute pt-12 lg:pt-0 top-1/3 left-15 w-3/5 z-20 text-white gs_reveal  m-auto">
-        <h1 className="text-2xl">Proyectos</h1>
-        <h2 className="text-5xl lg:text-7xl font-bold">Terminados</h2>
-      </div>
-      <Slide className="h-screen" {...properties}>
-        {slideImages.map((slideImage, index) => (
-          <div key={index}>
-            <article style={{ backgroundImage: `url(${slideImage.url})` }} className="h-screen bg-cover bg-center">
-              <div className="proyectos-container relative h-full w-full bg-black bg-opacity-60">
-                <div className="absolute left-15 top-1/2 w-3/5 gs_reveal">
-                  <div className="container max-w-5xl m-auto lg:flex items-start justify-between">
-                    <h2 className="text-4xl font-bold text-primary mb-8">{slideImage.caption}</h2>
-                    <Link to={`/proyectos/${slideImage.id}`} className="font-bold bg-white text-sm text-primary btn hover:shadow-xl transition">
-                      VER MÁS
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </article>
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Error />
+      ) : (
+        <>
+          <div className="absolute pt-12 lg:pt-0 top-1/3 left-15 w-3/5 z-20 text-white m-auto opacity-0 proyectos-title">
+            <h1 className="text-2xl">Proyectos</h1>
+            <h2 className="text-5xl lg:text-7xl font-bold">Terminados</h2>
           </div>
-        ))}
-      </Slide>
+          <Slide className="h-screen" {...properties}>
+            {data.map((item, index) => (
+              <div key={index}>
+                <article style={{ backgroundImage: `url(${item.image})` }} className="h-screen bg-cover bg-center opacity-0 proyectos-article">
+                  <div className="proyectos-container relative h-full w-full bg-black bg-opacity-60">
+                    <div className="absolute left-15 top-1/2 w-3/5 gs_reveal">
+                      <div className="container max-w-5xl m-auto lg:flex items-start justify-between">
+                        <h2 className="text-4xl font-bold text-primary mb-8">{item.title}</h2>
+                        <Link to={`/proyectos/${item.id}`} className="font-bold bg-white text-sm text-primary btn hover:shadow-xl transition">
+                          VER MÁS
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            ))}
+          </Slide>
+        </>
+      )}
     </section>
   );
 };

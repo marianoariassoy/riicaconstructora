@@ -1,8 +1,8 @@
 import BeatLoader from "react-spinners/BeatLoader";
 const Loader = () => {
   return (
-    <section className="h-screen w-screen bg-primary flex items-center justify-center">
-      <BeatLoader color="#FFF" />
+    <section className="h-screen w-screen bg-secondary flex items-center justify-center">
+      <BeatLoader />
     </section>
   );
 };

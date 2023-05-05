@@ -2,16 +2,16 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import useFetch from "../../hooks/useFetch";
+import Loader from "../../components/Loader";
+import Error from "../../components/Error";
 
 const Slider = () => {
   useEffect(() => {
-    gsap
-      .timeline()
-      .to(".home-title", { opacity: 1, duration: 0.5, ease: "none", delay: 0.5 })
-      .to(".social-media", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25")
-      .to(".whatsapp", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25")
-      .to(".indicator", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25");
+    gsap.timeline().to(".home-title", { opacity: 1, duration: 0.5, ease: "none", delay: 0.5 }).to(".social-media", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25").to(".whatsapp", { opacity: 1, duration: 0.5, ease: "none" }, "-=0.25");
   }, []);
+
+  const { data, loading, error } = useFetch(`/home`);
 
   const properties = {
     arrows: false,
@@ -19,28 +19,21 @@ const Slider = () => {
     pauseOnHover: false,
   };
 
-  const slideImages = [
-    {
-      url: "https://images.unsplash.com/photo-1681465766418-6474cfdcbb3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1643447727844-1e2e31544237?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1681465766418-6474cfdcbb3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80",
-    },
-  ];
-
-  const indicators = () => <div className="indicator opacity-0"> </div>;
+  const indicators = () => <div className="indicator"> </div>;
 
   return (
     <section id="home">
-      <Slide indicators={indicators} {...properties} id="slide-home">
-        {slideImages.map((slideImage, index) => (
-          <div style={{ backgroundImage: `url(${slideImage.url})` }} className="h-screen bg-cover bg-center opacity-60" key={index}></div>
-        ))}
-      </Slide>
-
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Error />
+      ) : (
+        <Slide indicators={indicators} {...properties} id="slide-home">
+          {data.map((item, index) => (
+            <div style={{ backgroundImage: `url(${item.image})` }} className="h-screen bg-cover bg-center opacity-60" key={index}></div>
+          ))}
+        </Slide>
+      )}
       <div className="home-title text-white opacity-0">
         <div className="home-title-1 mb-1 flex items-start">
           <h1 className="text-9xl font-bold bg-icon bg-icon-home">Italo</h1>

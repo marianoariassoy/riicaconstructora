@@ -1,41 +1,52 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import Layout from "../../components/Layout";
-import { gsap } from "gsap";
 import Modal from "../../components/Modal";
+import useFetch from "../../hooks/useFetch";
+import Loader from "../../components/Loader";
+import Error from "../../components/Error";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Helmet } from "react-helmet";
 
 const Desarrollos = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    gsap.to(".barra-progreso-avance", { width: "80%", duration: 2, ease: "inOut" });
-  }, []);
+  let { id } = useParams();
+  const { data, loading, error } = useFetch(`/desarrollos/${id}`);
+  const { data: gallery, loading: galleryLoading, error: galleryError } = useFetch(`/imagenes/${id}`);
 
-  const gallery = [
-    {
-      image: "https://images.unsplash.com/photo-1681465766418-6474cfdcbb3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1660361338517-8c8fbb3ac264?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1660361338462-4d3d5d0ebdcc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1660361338517-8c8fbb3ac264?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1660361338462-4d3d5d0ebdcc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1660361338517-8c8fbb3ac264?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1660361338462-4d3d5d0ebdcc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1660361338517-8c8fbb3ac264?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-    },
-  ];
+  useEffect(() => {
+    const sections = gsap.utils.toArray(".data-dark-header");
+    sections.forEach((section) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top-=-80",
+        end: "bottom top-=-80",
+        toggleClass: {
+          targets: "header",
+          className: "header-dark",
+        },
+        onEnter: () => {
+          const logo = document.querySelector("#logo");
+          logo.src = "../assets/logo-dark.svg";
+        },
+        onLeave: () => {
+          const logo = document.querySelector("#logo");
+          logo.src = "../assets/logo.svg";
+        },
+        onEnterBack: () => {
+          const logo = document.querySelector("#logo");
+          logo.src = "../assets/logo-dark.svg";
+        },
+        onLeaveBack: () => {
+          const logo = document.querySelector("#logo");
+          logo.src = "../assets/logo.svg";
+        },
+        markers: false,
+      });
+    });
+
+    window.scrollTo(0, 0);
+  }, [data]);
 
   const [currentImage, setCurrentImage] = useState(null);
   const [currentIndex, setcurrentIndex] = useState(false);
@@ -65,84 +76,109 @@ const Desarrollos = () => {
 
   return (
     <Layout>
-      <section className="bg-black">
-        <div className="main-title absolute z-30 bottom-14 p-10 text-white max-w-3xl">
-          <h1 className="font-bold text-8xl bg-icon">Italo</h1>
-          <p className="lg:text-xl mb-4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim </p>
-          <div className="barra-progreso w-4/5 h-8 bg-gray-700 relative">
-            <div className="barra-progreso-avance bg-primary h-full w-0"></div>
-            <div className="absolute top-0 text-sm pl-4 h-full flex items-center">
-              CONSTRUCCIÓN &nbsp;<span className="font-bold">80%</span>
-            </div>
-          </div>
-        </div>
-        <div
-          style={{ backgroundImage: "url(https://images.unsplash.com/photo-1681465766418-6474cfdcbb3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80)" }}
-          className="h-screen bg-cover bg-center opacity-60"
-        ></div>
-      </section>
-      <section className="data-dark-header gs_reveal">
-        <div className="container mx-auto max-w-5xl p-10 lg:pt-24 lg:flex">
-          <div className="lg:w-8/12 lg:pr-8">
-            <p className="mb-8">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-              ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit <br />
-              <br />
-              praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
-              ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-              aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-            </p>
-          </div>
-          <div className="lg:w-2/6">
-            <h2 className="text-2xl text-primary mb-4 font-bold">Caracteristicas</h2>
-            <div className="text-primary">
-              <div className="flex gap-4 items-center mb-4">
-                <div>
-                  <img src="../assets/icon10.svg" />
-                </div>
-                <div>Piscina</div>
-              </div>
-              <div className="flex gap-4 items-center mb-4">
-                <div>
-                  <img src="../assets/icon11.svg" />
-                </div>
-                <div>Rooftop</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="data-dark-header w-full gs_reveal">
-        <div className="container mx-auto max-w-5xl lg:flex p-10 pt-0">
-          <div className="lg:w-8/12">
-            <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mr-4 mb-4">
-              Descargar Brochure
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mr-4 mb-4">
-              Ubicación
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mb-4">
-              Compartir
-            </a>
-          </div>
-          <div>
-            <Link to="/contacto" className="font-bold bg-black text-sm text-white inline-block btn hover:shadow-xl transition">
-              Contacto
-            </Link>
-          </div>
-        </div>
-      </section>
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Error />
+      ) : (
+        <>
+          <Helmet>
+            <title>Riica Construcora - {data[0].title}</title>
+            <meta name="description" content={data[0].text_short} />
+            <meta property="og:title" content={data[0].title} />
+            <meta property="og:url" content={`https://riica.com.ar/desarrollos/${id}`} />
+            <meta property="og:description" content={data[0].text_shor} />
+            <meta property="og:image" content="https://riica.com.ar/assets/riica.jpg" />
+            <meta property="og:image:alt" content="Riica Constructora" />
+            <link rel="canonical" href={`https://riica.com.ar/desarrollos/${id}`} />
+          </Helmet>
 
-      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4" id="gallery">
-        {gallery.map((item, index) => (
-          <div className="relative cursor-pointer wrapper-images" key={index}>
-            <img src={item.image} className="aspect-square object-cover w-full" />
-            <div className="absolute bottom-0 left-0 w-full h-full bg-black bg-opacity-60 text-white p-4 grid place-items-center opacity-0 hover:opacity-100 transition-all" onClick={() => handelCLick(item, index)}>
-              <h3 className="text-2xl w-10 h-10 font-bold bg-primary grid place-items-center">+</h3>
+          <section className="bg-black">
+            <div className="main-title absolute z-30 bottom-14 p-10 text-white max-w-3xl">
+              <h1 className="font-bold text-8xl bg-icon">{data[0].title}</h1>
+              <p className="lg:text-xl mb-4">{data[0].text_short}</p>
+              <div className="barra-progreso w-4/5 h-8 bg-gray-700 relative">
+                <div className="barra-progreso-avance bg-primary h-full w-0" style={{ width: `${data[0].porcent}%` }}></div>
+                <div className="absolute top-0 text-sm pl-4 h-full flex items-center">
+                  CONSTRUCCIÓN &nbsp;<span className="font-bold">{data[0].porcent}%</span>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
-      </section>
+            <div style={{ backgroundImage: `url(${data[0].bgimage})` }} className="h-screen bg-cover bg-center opacity-60"></div>
+          </section>
+
+          <section className="data-dark-header">
+            <div className="container mx-auto max-w-5xl p-10 lg:pt-24 lg:flex">
+              <div className="lg:w-8/12 lg:pr-8">
+                <p className="mb-8">{data[0].text}</p>
+              </div>
+              <div className="lg:w-2/6">
+                <h2 className="text-2xl text-primary mb-4 font-bold">Caracteristicas</h2>
+                <div className="text-primary">
+                  {data[0].pool && (
+                    <div className="flex gap-4 items-center mb-4">
+                      <div>
+                        <img src="../assets/icon10.svg" />
+                      </div>
+                      <div>Piscina</div>
+                    </div>
+                  )}
+                  {data[0].rooftop && (
+                    <div className="flex gap-4 items-center mb-4">
+                      <div>
+                        <img src="../assets/icon11.svg" />
+                      </div>
+                      <div>Rooftop</div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="data-dark-header w-full gs_reveal">
+            <div className="container mx-auto max-w-5xl lg:flex p-10 pt-0">
+              <div className="lg:w-8/12">
+                {data[0].file && (
+                  <a href={data[0].file} target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mr-4 mb-4">
+                    Descargar Brochure
+                  </a>
+                )}
+                {data[0].location && (
+                  <a href={data[0].location} target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mr-4 mb-4">
+                    Ubicación
+                  </a>
+                )}
+                <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mb-4">
+                  Compartir
+                </a>
+              </div>
+              <div>
+                <Link to="/contacto" className="font-bold bg-black text-sm text-white inline-block btn hover:shadow-xl transition">
+                  Contacto
+                </Link>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
+      {galleryLoading ? (
+        <Loader />
+      ) : galleryError ? (
+        <Error />
+      ) : (
+        <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4" id="gallery">
+          {gallery.map((item, index) => (
+            <div className="relative cursor-pointer wrapper-images" key={index}>
+              <img src={item.image} className="aspect-square object-cover w-full" />
+              <div className="absolute bottom-0 left-0 w-full h-full bg-black bg-opacity-60 text-white p-4 grid place-items-center opacity-0 hover:opacity-100 transition-all" onClick={() => handelCLick(item, index)}>
+                <h3 className="text-2xl w-10 h-10 font-bold bg-primary grid place-items-center">+</h3>
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
+
       {currentImage && <Modal currentImage={currentImage} setCurrentImage={setCurrentImage} handelNext={handelNext} handelPrev={handelPrev} />}
     </Layout>
   );

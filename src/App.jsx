@@ -3,10 +3,8 @@ import Home from "./pages/home/Home";
 import Novadeades from "./pages/novedades/Novedades";
 import Desarrollos from "./pages/desarrollos/Desarrollos";
 import Proyectos from "./pages/proyectos/Proyectos";
-import GsapUtils from "./utils/GsapUtils";
 
 const App = () => {
-  GsapUtils();
   return (
     <>
       <BrowserRouter>

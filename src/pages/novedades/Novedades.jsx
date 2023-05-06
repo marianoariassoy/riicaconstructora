@@ -9,6 +9,7 @@ import Error from "../../components/Error";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Helmet } from "react-helmet";
+import SliderItem from "../../components/SliderItem";
 
 const Novedades = () => {
   let { id } = useParams();
@@ -80,7 +81,7 @@ const Novedades = () => {
             <div className="main-title absolute z-30 bottom-14 p-10 w-2/3">
               <h1 className="font-bold text-5xl lg:text-8xl text-white ">{data[0].title}</h1>
             </div>
-            <div style={{ backgroundImage: `url(${data[0].bgimage})` }} className="h-screen bg-cover bg-center opacity-60"></div>
+            <SliderItem src={data[0].bgimage} alt={data[0].title} opacity={1} />
           </section>
           <section className="data-dark-header">
             <div className="container mx-auto max-w-5xl p-10">
@@ -102,7 +103,7 @@ const Novedades = () => {
         <section className="relative data-dark-header h-screen w-screen">
           <Slide indicators={indicators} {...properties}>
             {gallery.map((item, index) => (
-              <div style={{ backgroundImage: `url(${item.image})` }} className="h-screen w-screen bg-cover bg-center aspect-video" key={index}></div>
+              <SliderItem src={item.image} alt={item.title} opacity={0} key={index} />
             ))}
           </Slide>
         </section>

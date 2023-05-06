@@ -5,6 +5,7 @@ import "react-slideshow-image/dist/styles.css";
 import useFetch from "../../hooks/useFetch";
 import Loader from "../../components/Loader";
 import Error from "../../components/Error";
+import SliderItem from "../../components/SliderItem";
 
 const Slider = () => {
   useEffect(() => {
@@ -30,7 +31,7 @@ const Slider = () => {
       ) : (
         <Slide indicators={indicators} {...properties} id="slide-home">
           {data.map((item, index) => (
-            <div style={{ backgroundImage: `url(${item.image})` }} className="h-screen bg-cover bg-center opacity-60" key={index}></div>
+            <SliderItem src={item.image} alt="Imagen presentación de Riica" opacity={1} key={index} />
           ))}
         </Slide>
       )}

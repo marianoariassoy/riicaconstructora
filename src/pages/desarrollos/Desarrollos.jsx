@@ -8,6 +8,8 @@ import Error from "../../components/Error";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Helmet } from "react-helmet";
+import SliderItem from "../../components/SliderItem";
+import GalleryItem from "../../components/GalleryItem";
 
 const Desarrollos = () => {
   let { id } = useParams();
@@ -52,7 +54,7 @@ const Desarrollos = () => {
   const [currentIndex, setcurrentIndex] = useState(false);
 
   const handelCLick = (item, index) => {
-    setCurrentImage(item.image);
+    setCurrentImage(item);
     setcurrentIndex(index);
   };
   const handelNext = () => {
@@ -104,7 +106,7 @@ const Desarrollos = () => {
                 </div>
               </div>
             </div>
-            <div style={{ backgroundImage: `url(${data[0].bgimage})` }} className="h-screen bg-cover bg-center opacity-60"></div>
+            <SliderItem src={data[0].bgimage} alt={data[0].title} opacity={1} />
           </section>
 
           <section className="data-dark-header">
@@ -169,12 +171,7 @@ const Desarrollos = () => {
       ) : (
         <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4" id="gallery">
           {gallery.map((item, index) => (
-            <div className="relative cursor-pointer wrapper-images" key={index}>
-              <img src={item.image} className="aspect-square object-cover w-full" />
-              <div className="absolute bottom-0 left-0 w-full h-full bg-black bg-opacity-60 text-white p-4 grid place-items-center opacity-0 hover:opacity-100 transition-all" onClick={() => handelCLick(item, index)}>
-                <h3 className="text-2xl w-10 h-10 font-bold bg-primary grid place-items-center">+</h3>
-              </div>
-            </div>
+            <GalleryItem src={item.image} alt="Imagen sobre Riica" key={index} handelCLick={handelCLick} index={index} />
           ))}
         </section>
       )}

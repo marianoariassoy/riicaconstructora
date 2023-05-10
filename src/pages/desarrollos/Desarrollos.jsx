@@ -47,10 +47,10 @@ const Desarrollos = () => {
         markers: false,
       });
 
-      if (data) {
-        setPorcent(`${data[0].porcent}%`);
-        gsap.to(".barra-progreso-avance", { width: porcent, duration: 2, ease: "inOut" });
-      }
+      // if (data) {
+      //   setPorcent(`${data[0].porcent}%`);
+      //   gsap.to(".barra-progreso-avance", { width: porcent, duration: 2, ease: "inOut" });
+      // }
     });
 
     window.scrollTo(0, 0);
@@ -106,7 +106,7 @@ const Desarrollos = () => {
               <h1 className="font-bold text-8xl bg-icon">{data[0].title}</h1>
               <p className="lg:text-xl mb-4">{data[0].text_short}</p>
               <div className="barra-progreso w-4/5 h-8 bg-gray-700 relative">
-                <div className="barra-progreso-avance bg-primary h-full w-0"></div>
+                <div className="barra-progreso-avance bg-primary h-full w-0" style={{ width: `${data[0].porcent}%` }}></div>
                 <div className="absolute top-0 text-sm pl-4 h-full flex items-center">
                   CONSTRUCCIÓN &nbsp;<span className="font-bold">{data[0].porcent}%</span>
                 </div>
@@ -116,7 +116,7 @@ const Desarrollos = () => {
           </section>
 
           <section className="data-dark-header">
-            <div className="container mx-auto max-w-5xl p-10 lg:pt-24 lg:flex">
+            <div className="container mx-auto max-w-5xl p-10 lg:pt-20 lg:flex">
               <div className="lg:w-8/12 lg:pr-8">
                 <p className="mb-8">{data[0].text}</p>
               </div>
@@ -192,7 +192,7 @@ const Desarrollos = () => {
             </div>
           </section>
           <section className="data-dark-header w-full gs_reveal">
-            <div className="container mx-auto max-w-5xl lg:flex p-10 pt-0">
+            <div className="container mx-auto max-w-5xl lg:flex p-10 pt-0 lg:pb-20">
               <div className="lg:w-8/12">
                 {data[0].file && (
                   <a href={data[0].file} target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn bg-black-hover hover:shadow-xl transition mr-4 mb-4">

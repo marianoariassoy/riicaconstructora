@@ -45,10 +45,11 @@ const Novedades = () => {
             </Link>
           ))
         )}
-
-        <a href="#" className="font-bold bg-white text-sm text-primary inline-block btn hover:shadow-xl transition">
-          ANTERIORES
-        </a>
+        {data && data.length > 4 && (
+          <a href="#" className="font-bold bg-white text-sm text-primary inline-block btn hover:shadow-xl transition">
+            ANTERIORES
+          </a>
+        )}
       </div>
     </section>
   );

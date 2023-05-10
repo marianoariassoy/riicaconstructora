@@ -105,7 +105,7 @@ const Proyectos = () => {
           </section>
 
           <section className="data-dark-header gs_reveal">
-            <div className="container mx-auto max-w-5xl p-10 lg:pt-24 lg:flex">
+            <div className="container mx-auto max-w-5xl p-10 lg:pt-20 lg:flex">
               <div className="lg:w-8/12 lg:pr-8">
                 <p className="mb-8">{data[0].text}</p>
               </div>
@@ -182,7 +182,7 @@ const Proyectos = () => {
           </section>
 
           <section className="data-dark-header w-full gs_reveal">
-            <div className="container mx-auto max-w-5xl lg:flex p-10 pt-0">
+            <div className="container mx-auto max-w-5xl lg:flex p-10 pt-0 lg:pb-20">
               <div className="lg:w-8/12">
                 <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary bg-black-hover text-sm text-white inline-block btn hover:shadow-xl transition mr-4 mb-4">
                   Descargar Brochure

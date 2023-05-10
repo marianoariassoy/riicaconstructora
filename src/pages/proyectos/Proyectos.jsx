@@ -16,9 +16,6 @@ const Proyectos = () => {
   const { data, loading, error } = useFetch(`/proyectos/${id}`);
   const { data: gallery, loading: galleryLoading, error: galleryError } = useFetch(`/imagenes/${id}`);
 
-  const [currentImage, setCurrentImage] = useState(null);
-  const [currentIndex, setcurrentIndex] = useState(false);
-
   useEffect(() => {
     const sections = gsap.utils.toArray(".data-dark-header");
     sections.forEach((section) => {
@@ -53,8 +50,11 @@ const Proyectos = () => {
     window.scrollTo(0, 0);
   }, [data]);
 
+  const [currentImage, setCurrentImage] = useState(null);
+  const [currentIndex, setcurrentIndex] = useState(false);
+
   const handelCLick = (item, index) => {
-    setCurrentImage(item.image);
+    setCurrentImage(item);
     setcurrentIndex(index);
   };
 
@@ -110,27 +110,71 @@ const Proyectos = () => {
                 <p className="mb-8">{data[0].text}</p>
               </div>
               <div className="lg:w-2/6">
-                <h2 className="text-2xl text-primary mb-4 font-bold">Caracteristicas</h2>
-                <div className="text-primary">
-                  {data[0].pool ? (
-                    <div className="flex gap-4 items-center mb-4">
-                      <div>
+                <h2 className="text-2xl text-primary mb-6 font-bold">Caracteristicas</h2>
+                <div className="text-primary grid grid-cols-2 gap-4 text-sm">
+                  {data[0].pool && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
                         <img src="../assets/icon10.svg" />
                       </div>
-                      <div>Piscina</div>
+                      <div className="font-bold">Piscina</div>
                     </div>
-                  ) : (
-                    ""
                   )}
-                  {data[0].rooftop ? (
-                    <div className="flex gap-4 items-center mb-4">
-                      <div>
+                  {data[0].rooftop && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
                         <img src="../assets/icon11.svg" />
                       </div>
-                      <div>Rooftop</div>
+                      <div className="font-bold">Rooftop</div>
                     </div>
-                  ) : (
-                    ""
+                  )}
+                  {data[0].cocheras && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon12.svg" />
+                      </div>
+                      <div className="font-bold">Cocheras</div>
+                    </div>
+                  )}
+                  {data[0].calefaccion && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon13.svg" />
+                      </div>
+                      <div className="font-bold">Calefacción central</div>
+                    </div>
+                  )}
+                  {data[0].seguridad && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon14.svg" />
+                      </div>
+                      <div className="font-bold">Seguridad</div>
+                    </div>
+                  )}
+                  {data[0].quincho && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon15.svg" />
+                      </div>
+                      <div className="font-bold">Quincho con parrilla</div>
+                    </div>
+                  )}
+                  {data[0].piscina && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon16.svg" />
+                      </div>
+                      <div className="font-bold">Piscina solarium</div>
+                    </div>
+                  )}
+                  {data[0].verde && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon17.svg" />
+                      </div>
+                      <div className="font-bold">Espacio Verde</div>
+                    </div>
                   )}
                 </div>
               </div>
@@ -140,13 +184,13 @@ const Proyectos = () => {
           <section className="data-dark-header w-full gs_reveal">
             <div className="container mx-auto max-w-5xl lg:flex p-10 pt-0">
               <div className="lg:w-8/12">
-                <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mr-4 mb-4">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary bg-black-hover text-sm text-white inline-block btn hover:shadow-xl transition mr-4 mb-4">
                   Descargar Brochure
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mr-4 mb-4">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary bg-black-hover text-sm text-white inline-block btn hover:shadow-xl transition mr-4 mb-4">
                   Ubicación
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mb-4">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary bg-black-hover text-sm text-white inline-block btn hover:shadow-xl transition mb-4">
                   Compartir
                 </a>
               </div>

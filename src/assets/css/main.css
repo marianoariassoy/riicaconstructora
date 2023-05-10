@@ -166,7 +166,7 @@ nav li a:hover {
 }
 @media (max-width: 980px) {
   #nav-menu {
-    display: inline-block;
+    display: block;
   }
 }
 
@@ -391,6 +391,10 @@ button:hover {
     opacity: 1;
   }
 }
+.bg-black-hover:hover {
+  background-color: black;
+}
+
 .indicators {
   bottom: 2.5rem;
   position: absolute;

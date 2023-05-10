@@ -15,6 +15,7 @@ const Desarrollos = () => {
   let { id } = useParams();
   const { data, loading, error } = useFetch(`/desarrollos/${id}`);
   const { data: gallery, loading: galleryLoading, error: galleryError } = useFetch(`/imagenes/${id}`);
+  const [porcent, setPorcent] = useState(0);
 
   useEffect(() => {
     const sections = gsap.utils.toArray(".data-dark-header");
@@ -45,6 +46,11 @@ const Desarrollos = () => {
         },
         markers: false,
       });
+
+      if (data) {
+        setPorcent(`${data[0].porcent}%`);
+        gsap.to(".barra-progreso-avance", { width: porcent, duration: 2, ease: "inOut" });
+      }
     });
 
     window.scrollTo(0, 0);
@@ -100,7 +106,7 @@ const Desarrollos = () => {
               <h1 className="font-bold text-8xl bg-icon">{data[0].title}</h1>
               <p className="lg:text-xl mb-4">{data[0].text_short}</p>
               <div className="barra-progreso w-4/5 h-8 bg-gray-700 relative">
-                <div className="barra-progreso-avance bg-primary h-full w-0" style={{ width: `${data[0].porcent}%` }}></div>
+                <div className="barra-progreso-avance bg-primary h-full w-0"></div>
                 <div className="absolute top-0 text-sm pl-4 h-full flex items-center">
                   CONSTRUCCIÓN &nbsp;<span className="font-bold">{data[0].porcent}%</span>
                 </div>
@@ -115,22 +121,70 @@ const Desarrollos = () => {
                 <p className="mb-8">{data[0].text}</p>
               </div>
               <div className="lg:w-2/6">
-                <h2 className="text-2xl text-primary mb-4 font-bold">Caracteristicas</h2>
-                <div className="text-primary">
+                <h2 className="text-2xl text-primary mb-6 font-bold">Caracteristicas</h2>
+                <div className="text-primary grid grid-cols-2 gap-4 text-sm">
                   {data[0].pool && (
-                    <div className="flex gap-4 items-center mb-4">
-                      <div>
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
                         <img src="../assets/icon10.svg" />
                       </div>
-                      <div>Piscina</div>
+                      <div className="font-bold">Piscina</div>
                     </div>
                   )}
                   {data[0].rooftop && (
-                    <div className="flex gap-4 items-center mb-4">
-                      <div>
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
                         <img src="../assets/icon11.svg" />
                       </div>
-                      <div>Rooftop</div>
+                      <div className="font-bold">Rooftop</div>
+                    </div>
+                  )}
+                  {data[0].cocheras && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon12.svg" />
+                      </div>
+                      <div className="font-bold">Cocheras</div>
+                    </div>
+                  )}
+                  {data[0].calefaccion && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon13.svg" />
+                      </div>
+                      <div className="font-bold">Calefacción central</div>
+                    </div>
+                  )}
+                  {data[0].seguridad && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon14.svg" />
+                      </div>
+                      <div className="font-bold">Seguridad</div>
+                    </div>
+                  )}
+                  {data[0].quincho && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon15.svg" />
+                      </div>
+                      <div className="font-bold">Quincho con parrilla</div>
+                    </div>
+                  )}
+                  {data[0].piscina && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon16.svg" />
+                      </div>
+                      <div className="font-bold">Piscina solarium</div>
+                    </div>
+                  )}
+                  {data[0].verde && (
+                    <div className="flex gap-3 items-center">
+                      <div className="w-6 flex justify-center">
+                        <img src="../assets/icon17.svg" />
+                      </div>
+                      <div className="font-bold">Espacio Verde</div>
                     </div>
                   )}
                 </div>
@@ -141,16 +195,16 @@ const Desarrollos = () => {
             <div className="container mx-auto max-w-5xl lg:flex p-10 pt-0">
               <div className="lg:w-8/12">
                 {data[0].file && (
-                  <a href={data[0].file} target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mr-4 mb-4">
+                  <a href={data[0].file} target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn bg-black-hover hover:shadow-xl transition mr-4 mb-4">
                     Descargar Brochure
                   </a>
                 )}
                 {data[0].location && (
-                  <a href={data[0].location} target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mr-4 mb-4">
+                  <a href={data[0].location} target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn bg-black-hover hover:shadow-xl transition mr-4 mb-4">
                     Ubicación
                   </a>
                 )}
-                <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition mb-4">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="font-bold bg-primary bg-black-hover text-sm text-white inline-block btn hover:shadow-xl transition mb-4">
                   Compartir
                 </a>
               </div>

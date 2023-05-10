@@ -83,11 +83,12 @@ const Novedades = () => {
             </div>
             <SliderItem src={data[0].bgimage} alt={data[0].title} opacity={1} />
           </section>
+
           <section className="data-dark-header">
-            <div className="container mx-auto max-w-5xl p-10">
+            <div className="container mx-auto max-w-5xl p-20">
               <p className="text-primary text-xl mb-4">{data[0].text_short}</p>
               <p className="mb-8">{data[0].text}</p>
-              <a href="#" className="font-bold bg-primary text-sm text-white inline-block btn hover:shadow-xl transition">
+              <a href="#" className="font-bold bg-primary text-sm text-white inline-block btn bg-black-hover hover:shadow-xl transition">
                 Compartir
               </a>
             </div>

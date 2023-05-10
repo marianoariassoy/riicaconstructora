@@ -159,3 +159,8 @@ button {
     opacity: 1;
   }
 }
+.bg-black-hover {
+  &:hover {
+    background-color: black;
+  }
+}

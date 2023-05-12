@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Layout from "../../components/Layout";
 import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
-import useFetch from "../../hooks/useFetch";
-import Loader from "../../components/Loader";
-import Error from "../../components/Error";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Helmet } from "react-helmet";
+import "react-slideshow-image/dist/styles.css";
+import Layout from "../../components/Layout";
+import useFetch from "../../hooks/useFetch";
+import Loader from "../../components/Loader";
+import Error from "../../components/Error";
 import SliderItem from "../../components/SliderItem";
 
 const Novedades = () => {

@@ -49,10 +49,10 @@ const DesarrollosItem = ({ data }) => {
         <div className="w-full lg:h-3/5 aspect-video object-cover overflow-hidden">
           <ImageComponent src={data.image} alt={data.title} />
         </div>
-        <div className="w-1/2 h-2/5 hidden lg:inline-block aspect-video object-cover">
+        <div className="w-1/2 h-2/5 hidden lg:inline-block">
           <ImageComponent src={data.image2} alt={data.title} />
         </div>
-        <div className="w-1/2 h-2/5 hidden lg:inline-block aspect-video object-cover">
+        <div className="w-1/2 h-2/5 hidden lg:inline-block">
           <ImageComponent src={data.image3} alt={data.title} />
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+import { useEffect } from "react";
 import Slider from "./Slider";
 import Desarrollos from "./Desarrollos";
 import Estadisticas from "./Estadisticas";
@@ -6,15 +8,16 @@ import Nosotros from "./Nosotros";
 import Contacto from "./Contacto";
 import Novedades from "./Novedades";
 import Layout from "../../components/Layout";
-import { gsap } from "gsap";
-import { useEffect } from "react";
-import GsapUtils from "../../utils/GsapUtils";
+import GsapReveal from "../../utils/GsapReveal";
+import GsapHeader from "../../utils/GsapHeader";
 
 const Home = ({ section }) => {
   useEffect(() => {
     gsap.to(window, { duration: 1, scrollTo: `#${section}`, overwrite: "auto" });
+    GsapReveal();
+    GsapHeader();
   }, []);
-  GsapUtils();
+
   return (
     <>
       <Layout section={section}>

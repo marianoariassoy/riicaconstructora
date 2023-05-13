@@ -1,40 +1,27 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import Loader from "../../components/Loader";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Novedades = () => {
+  const [visible, setVisible] = useState(2);
   const { data, loading, error } = useFetch(`/novedades`);
-  gsap.registerPlugin(ScrollTrigger);
 
-  useEffect(() => {
-    if (data)
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: "#novedades",
-            start: "top 60%",
-            markers: false,
-            toggleActions: "play pause play restart",
-          },
-        })
-        .to(".novedades-item", { opacity: 1, duration: 1, ease: "inOut" });
-  }, [data]);
+  const showMoreItems = () => {
+    setVisible((prevValue) => prevValue + 2);
+  };
 
   return (
     <section className="bg-secondary pt-24 lg:pb-24" id="novedades">
       <div className="container m-auto max-w-5xl p-10">
         <h1 className="text-7xl font-bold mb-16 text-primary">Novedades</h1>
-
         {loading ? (
           <Loader />
         ) : error ? (
           ""
         ) : (
-          data.map((item, index) => (
-            <Link to={`/novedades/${item.id}`} className="novedades-item text-white mb-12 lg:flex justify-between gap-8 cursor-pointer hover:shadow-xl transition opacity-0" key={item.id}>
+          data.slice(0, visible).map((item, index) => (
+            <Link to={`/novedades/${item.id}`} className="novedades-item text-white mb-12 lg:flex justify-between gap-8 hover:shadow-xl transition fade-in" key={item.id}>
               <div className="novedades-item-img lg:w-1/3">
                 <img src={item.image} />
               </div>
@@ -45,10 +32,13 @@ const Novedades = () => {
             </Link>
           ))
         )}
-        {data && data.length > 4 && (
-          <a href="#" className="font-bold bg-white text-sm text-primary inline-block btn hover:shadow-xl transition">
+
+        {data && visible >= data.length ? (
+          ""
+        ) : (
+          <button onClick={showMoreItems} className="font-bold bg-white text-sm text-primary inline-block btn hover:shadow-xl transition">
             ANTERIORES
-          </a>
+          </button>
         )}
       </div>
     </section>

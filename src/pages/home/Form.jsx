@@ -27,21 +27,15 @@ const Form = () => {
       subject: "Contacto",
     };
 
-    axios
-      .post("https://imltenis.com.ar/riicabackend/send-email.php", { ...data, ...sender })
-      .then((data) => {
-        if (data.data === "success") {
-          setSended(true);
-          setSending(false);
-        } else {
-          setError(true);
-          setSending(false);
-        }
-      })
-      .catch(() => {
+    axios.post("https://imltenis.com.ar/riicabackend/send-email.php", { ...data, ...sender }).then((data) => {
+      if (data.data === "success") {
+        setSended(true);
+        setSending(false);
+      } else {
         setError(true);
-        setSended(false);
-      });
+        setSending(false);
+      }
+    });
   };
 
   const text = {

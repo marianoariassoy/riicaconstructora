@@ -22,7 +22,6 @@ const Desarrollos = () => {
             trigger: "#desarrollos",
             start: "top 60%",
             markers: false,
-            toggleActions: "play pause play restart",
           },
         })
         .to(".barra-progreso-avance", { width: porcent, duration: 2, ease: "inOut" })
@@ -83,13 +82,13 @@ const Desarrollos = () => {
               </div>
               <div className="desarrollos-item-col2 lg:w-1/2">
                 <div className="w-full h-full lg:h-3/5 ">
-                  <img src={item.image} alt="" className="w-full h-full aspect-square object-cover image-desarrollos-1 opacity-0" />
+                  <img src={item.image} alt={item.title} className="w-full h-full aspect-square object-cover image-desarrollos-1 opacity-0" />
                 </div>
                 <div className="w-1/2 h-2/5 hidden lg:inline-block">
-                  <img src={item.image2} alt="" className="w-full h-full aspect-square object-cover image-desarrollos-2 opacity-0" />
+                  <img src={item.image2} alt={item.title} className="w-full h-full aspect-square object-cover image-desarrollos-2 opacity-0" />
                 </div>
                 <div className="w-1/2 h-2/5 hidden lg:inline-block">
-                  <img src={item.image3} alt="" className="w-full h-full aspect-square object-cover image-desarrollos-3 opacity-0" />
+                  <img src={item.image3} alt={item.title} className="w-full h-full aspect-square object-cover image-desarrollos-3 opacity-0" />
                 </div>
               </div>
             </article>

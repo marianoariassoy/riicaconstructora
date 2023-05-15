@@ -123,7 +123,7 @@ const Desarrollos = () => {
               <div className="lg:w-2/6">
                 <h2 className="text-2xl text-primary mb-6 font-bold">Caracteristicas</h2>
                 <div className="text-primary grid grid-cols-2 gap-4 text-sm">
-                  {data[0].pool && (
+                  {data[0].pool >= 1 && (
                     <div className="flex gap-3 items-center">
                       <div className="w-6 flex justify-center">
                         <img src="../assets/icon10.svg" />
@@ -131,7 +131,7 @@ const Desarrollos = () => {
                       <div className="font-bold">Piscina</div>
                     </div>
                   )}
-                  {data[0].rooftop && (
+                  {data[0].rooftop >= 1 && (
                     <div className="flex gap-3 items-center">
                       <div className="w-6 flex justify-center">
                         <img src="../assets/icon11.svg" />
@@ -139,7 +139,7 @@ const Desarrollos = () => {
                       <div className="font-bold">Rooftop</div>
                     </div>
                   )}
-                  {data[0].cocheras && (
+                  {data[0].cocheras >= 1 && (
                     <div className="flex gap-3 items-center">
                       <div className="w-6 flex justify-center">
                         <img src="../assets/icon12.svg" />
@@ -147,7 +147,7 @@ const Desarrollos = () => {
                       <div className="font-bold">Cocheras</div>
                     </div>
                   )}
-                  {data[0].calefaccion && (
+                  {data[0].calefaccion >= 1 && (
                     <div className="flex gap-3 items-center">
                       <div className="w-6 flex justify-center">
                         <img src="../assets/icon13.svg" />
@@ -155,7 +155,7 @@ const Desarrollos = () => {
                       <div className="font-bold">Calefacción central</div>
                     </div>
                   )}
-                  {data[0].seguridad && (
+                  {data[0].seguridad >= 1 && (
                     <div className="flex gap-3 items-center">
                       <div className="w-6 flex justify-center">
                         <img src="../assets/icon14.svg" />
@@ -163,7 +163,7 @@ const Desarrollos = () => {
                       <div className="font-bold">Seguridad</div>
                     </div>
                   )}
-                  {data[0].quincho && (
+                  {data[0].quincho >= 1 && (
                     <div className="flex gap-3 items-center">
                       <div className="w-6 flex justify-center">
                         <img src="../assets/icon15.svg" />
@@ -171,7 +171,7 @@ const Desarrollos = () => {
                       <div className="font-bold">Quincho con parrilla</div>
                     </div>
                   )}
-                  {data[0].piscina && (
+                  {data[0].piscina >= 1 && (
                     <div className="flex gap-3 items-center">
                       <div className="w-6 flex justify-center">
                         <img src="../assets/icon16.svg" />
@@ -179,7 +179,7 @@ const Desarrollos = () => {
                       <div className="font-bold">Piscina solarium</div>
                     </div>
                   )}
-                  {data[0].verde && (
+                  {data[0].verde >= 1 && (
                     <div className="flex gap-3 items-center">
                       <div className="w-6 flex justify-center">
                         <img src="../assets/icon17.svg" />

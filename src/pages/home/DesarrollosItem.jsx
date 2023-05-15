@@ -1,28 +1,7 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ImageComponent from "../../components/ImageComponent";
 
 const DesarrollosItem = ({ data }) => {
-  const [porcent, setPorcent] = useState(0);
-  gsap.registerPlugin(ScrollTrigger);
-
-  useEffect(() => {
-    if (data) {
-      setPorcent(`${data.porcent}%`);
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: "#desarrollos",
-            start: "top 60%",
-            markers: false,
-          },
-        })
-        .to(".barra-progreso-avance", { width: porcent, duration: 2, ease: "inOut" });
-    }
-  }, [data]);
-
   return (
     <article className="desarrollos-item lg:flex h-screen">
       <div className="desarrollos-item-col1 p-10 pt-28 lg:pb-20 lg:w-1/2">
@@ -30,7 +9,7 @@ const DesarrollosItem = ({ data }) => {
           <h1 className="text-7xl font-bold mb-2">{data.title}</h1>
           <p className="mb-8 text-2xl">{data.address}</p>
           <div className="barra-progreso w-4/5 h-8 bg-gray-700 relative">
-            <div className="barra-progreso-avance bg-primary h-full w-0"></div>
+            <div className="barra-progreso-avance bg-primary h-full" style={{ width: `${data.porcent}%` }}></div>
             <div className="absolute top-0 text-sm pl-4 h-full flex items-center">
               CONSTRUCCIÓN &nbsp;<span className="font-bold">{data.porcent}%</span>
             </div>

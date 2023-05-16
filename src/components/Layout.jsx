@@ -12,7 +12,7 @@ const Layout = ({ children, section }) => {
         <Footer section={section} />
       </footer>
       <div className="whatsapp z-30">
-        <a href="https://wa.me/5493516150000" target="_blank" rel="noreferrer">
+        <a href="https://wa.me/5493874685060" target="_blank" rel="noreferrer">
           <img src="../assets/whatsapp.svg" alt="Whatsapp" className="drop-shadow-hover drop-shadow" />
         </a>
       </div>

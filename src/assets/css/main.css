@@ -245,7 +245,6 @@ nav li a:hover {
   position: absolute;
   bottom: 2.5rem;
   left: 2.5rem;
-  z-index: 2000;
 }
 .social-media a {
   display: inline-block;

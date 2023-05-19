@@ -13,7 +13,7 @@ const Novedades = () => {
   };
 
   return (
-    <section className="bg-secondary pt-24 lg:pb-24 h-screen" id="novedades">
+    <section className="bg-secondary pt-24 lg:pb-24 lg:h-screen" id="novedades">
       <div className="container m-auto max-w-5xl p-10">
         <h1 className="text-7xl font-bold mb-16 text-primary">Novedades</h1>
         {loading ? (

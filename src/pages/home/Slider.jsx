@@ -35,14 +35,6 @@ const Slider = () => {
           ))}
         </Slide>
       )}
-      <div className="home-title text-white opacity-0">
-        <div className="home-title-1 mb-1 flex items-start">
-          <h1 className="text-9xl font-bold bg-icon bg-icon-home">Italo</h1>
-        </div>
-        <div className="home-title-2 text-2xl">
-          Proyectos <br /> de principio <br /> <div className="line"></div> a fin.
-        </div>
-      </div>
 
       <div className="social-media flex items-center justify-start opacity-0">
         <a href="https://www.facebook.com/riicaconstructora" target="_blank" rel="noreferrer">

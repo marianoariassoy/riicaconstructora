@@ -26,6 +26,10 @@ const GsapScroll = () => {
       a.addEventListener("click", (e) => {
         e.preventDefault();
         gsap.to(window, { duration: 1, scrollTo: linkST.start, overwrite: "auto" });
+        if (windowsWidth < 980) {
+          document.querySelector("nav").classList.remove("fade-in-2");
+          document.querySelector("#nav-menu").classList.remove("active");
+        }
       });
     });
 
@@ -52,10 +56,9 @@ const GsapScroll = () => {
         el.classList.remove("active-nav");
       });
       link.classList.add("active-nav");
-      if (windowsWidth < 980 && menuOpen) {
+      if (windowsWidth < 980) {
         document.querySelector("nav").classList.remove("fade-in-2");
-        document.querySelector("#nav-menu").classList.toggle("active");
-        menuOpen = false;
+        document.querySelector("#nav-menu").classList.remove("active");
       }
     }
   }, []);

@@ -7,6 +7,7 @@ import Loader from "../../components/Loader";
 import Error from "../../components/Error";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ImageComponent from "../../components/ImageComponent";
 
 const Proyectos = () => {
   const { data, loading, error } = useFetch(`/proyectos`);
@@ -58,20 +59,23 @@ const Proyectos = () => {
             <h1 className="text-2xl">Proyectos</h1>
             <h2 className="text-5xl lg:text-7xl font-bold">Terminados</h2>
           </div>
-          <Slide className="h-screen" {...properties}>
+          <Slide className="h-screen relative" {...properties}>
             {data.map((item, index) => (
               <div key={index}>
-                <article style={{ backgroundImage: `url(${item.image})` }} className="h-screen bg-cover bg-center opacity-0 proyectos-article">
-                  <div className="proyectos-container relative h-full w-full bg-black bg-opacity-60">
+                <article className="h-screen opacity-0 proyectos-article relative">
+                  <div className="proyectos-container  h-full w-full bg-black bg-opacity-60 absolute top-0 left-0 z-20">
                     <div className="absolute left-15 top-1/2 w-3/5 gs_reveal">
                       <div className="container max-w-5xl m-auto lg:flex items-start justify-between">
                         <h2 className="text-4xl font-bold text-primary mb-8">{item.title}</h2>
-                        <Link to={`/proyectos/${item.id}`} className="font-bold bg-white text-sm text-primary btn hover:shadow-xl transition">
-                          VER MÁS
-                        </Link>
+                        {item.text && (
+                          <Link to={`/proyectos/${item.id}`} className="font-bold bg-white text-sm text-primary btn hover:shadow-xl transition">
+                            VER MÁS
+                          </Link>
+                        )}
                       </div>
                     </div>
                   </div>
+                  <ImageComponent src={item.image} alt={item.title} className="w-full h-full " />
                 </article>
               </div>
             ))}

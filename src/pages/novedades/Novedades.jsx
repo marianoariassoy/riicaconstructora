@@ -101,13 +101,15 @@ const Novedades = () => {
       ) : galleryError ? (
         <Error />
       ) : (
-        <section className="relative data-dark-header h-screen w-screen">
-          <Slide indicators={indicators} {...properties}>
-            {gallery.map((item, index) => (
-              <SliderItem src={item.image} alt={item.title} opacity={0} key={index} />
-            ))}
-          </Slide>
-        </section>
+        gallery && (
+          <section className="relative data-dark-header h-screen w-screen">
+            <Slide indicators={indicators} {...properties}>
+              {gallery.map((item, index) => (
+                <SliderItem src={item.image} alt={item.title} opacity={0} key={index} />
+              ))}
+            </Slide>
+          </section>
+        )
       )}
     </Layout>
   );

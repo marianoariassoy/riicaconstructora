@@ -1,10 +1,24 @@
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import { useEffect } from "react";
 
 const Layout = ({ children, section }) => {
+  useEffect(() => {
+    window.addEventListener("scroll", function () {
+      var header = document.querySelector("header");
+      var scrollPosition = window.scrollY || window.pageYOffset;
+
+      if (scrollPosition > 100) {
+        header.classList.add("bg-secondary");
+      } else {
+        header.classList.remove("bg-secondary");
+      }
+    });
+  }, []);
+
   return (
     <>
-      <header className="z-40">
+      <header className="z-50">
         <NavBar section={section} />
       </header>
       <main>{children}</main>

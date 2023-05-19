@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Blurhash } from "react-blurhash";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const ImageComponent = ({ src, alt }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const hash = "LcKUJ}-;D%j?_NR+M{WBIARj%Mof";
 
   useEffect(() => {
     const image = new Image();
@@ -13,15 +12,7 @@ const ImageComponent = ({ src, alt }) => {
     };
   }, [src]);
 
-  return (
-    <>
-      <div style={{ display: isLoading ? "inline" : "none" }}>
-        <Blurhash hash={hash} width="100%" height="100%" resolutionX={32} resolutionY={32} punch={1} />
-      </div>
-
-      <img src={src} alt={alt} className="h-full w-full object-cover" style={{ display: isLoading ? "none" : "block" }} />
-    </>
-  );
+  return <div className="w-full h-full flex items-center justify-center">{isLoading ? <BeatLoader /> : <img src={src} alt={alt} className="h-full w-full object-cover fade-in" />}</div>;
 };
 
 export default ImageComponent;

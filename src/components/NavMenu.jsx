@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import GsapScroll from "../utils/GsapScroll";
 
 const NavMenu = () => {

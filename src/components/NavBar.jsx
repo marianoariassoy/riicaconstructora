@@ -24,7 +24,7 @@ const NavBar = ({ section }) => {
               </li>
               <li>
                 <a href="#desarrollos" className="text-white nav-a">
-                  Desarrollos
+                  Proyectos en Venta
                 </a>
               </li>
               <li>
@@ -65,7 +65,7 @@ const NavBar = ({ section }) => {
               </li>
               <li>
                 <Link to="/desarrollos" className="text-white">
-                  Desarrollos
+                  Proyectos en Venta
                 </Link>
               </li>
               <li>

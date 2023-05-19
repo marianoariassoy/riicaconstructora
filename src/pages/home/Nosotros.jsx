@@ -27,7 +27,7 @@ const Nosotros = () => {
   }, [data]);
 
   return (
-    <section className="pt-20 lg:pt-32 lg:pb-16 data-dark-header h-screen" id="nosotros">
+    <section className="pt-20 lg:pt-32 lg:pb-16 data-dark-header lg:h-screen" id="nosotros">
       <div className="container m-auto max-w-5xl p-10">
         <h1 className="text-2xl text-secondary">Somos</h1>
         <h2 className="text-7xl text-secondary font-bold mb-8">Riica</h2>
@@ -40,7 +40,7 @@ const Nosotros = () => {
         ) : error ? (
           "Error al cargar los datos"
         ) : (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
             {data.map((item, index) => (
               <article className="nosotros-item hover:shadow-xl transition cursor-pointer opacity-10" id={`team-${index + 1}`} key={item.id}>
                 <div className="aspect-square object-cover overflow-hidden">

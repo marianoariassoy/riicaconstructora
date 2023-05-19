@@ -18,7 +18,7 @@ const Layout = ({ children, section }) => {
 
   return (
     <>
-      <header className="z-50">
+      <header>
         <NavBar section={section} />
       </header>
       <main>{children}</main>

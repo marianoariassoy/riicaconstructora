@@ -12,7 +12,7 @@ import SliderItem from "../../components/SliderItem";
 import GalleryItem from "../../components/GalleryItem";
 
 const Desarrollos = () => {
-  let { id } = useParams();
+  const { id } = useParams();
   const { data, loading, error } = useFetch(`/desarrollos/${id}`);
   const { data: gallery, loading: galleryLoading, error: galleryError } = useFetch(`/imagenes/${id}`);
   const [porcent, setPorcent] = useState(0);

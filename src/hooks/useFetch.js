@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-const apiUrl = "https://imltenis.com.ar/riicabackend/api";
+const apiUrl = "https://www.riica.com.ar/backend/api";
 import axios from "axios";
 
 function useFetch(url) {
@@ -22,22 +22,6 @@ function useFetch(url) {
     }
     fetchData();
   }, [url]);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const urlOk = apiUrl + url;
-  //       const response = await fetch(urlOk);
-  //       const json = await response.json();
-  //       setData(json);
-  //     } catch (error) {
-  //       setError(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   }
-  //   fetchData();
-  // }, [url]);
 
   return { data, loading, error };
 }

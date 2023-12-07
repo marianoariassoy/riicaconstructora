@@ -17,8 +17,12 @@ const SliderItem = ({ src, alt, opacity }) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className={opacity ? "opacity-60" : ""}>
-          <img src={src} alt={alt} className="fade-in h-screen w-full object-cover " />
+        <div className={opacity ? "opacity-100" : ""}>
+          <img
+            src={src}
+            alt={alt}
+            className="fade-in h-screen w-full object-cover "
+          />
         </div>
       )}
     </div>

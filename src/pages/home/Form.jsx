@@ -21,21 +21,26 @@ const Form = () => {
   const onSubmit = (data) => {
     setSending(true);
     const sender = {
-      to: "hola@marianoarias.soy",
+      to: "alejandracarpena.riica@gmail.com",
       from: "no-reply@riica.com.ar",
       from_name: "Riica Construcciones",
       subject: "Contacto",
     };
 
-    axios.post("https://imltenis.com.ar/riicabackend/send-email.php", { ...data, ...sender }).then((data) => {
-      if (data.data === "success") {
-        setSended(true);
-        setSending(false);
-      } else {
-        setError(true);
-        setSending(false);
-      }
-    });
+    axios
+      .post("https://imltenis.com.ar/riicabackend/send-email.php", {
+        ...data,
+        ...sender,
+      })
+      .then((data) => {
+        if (data.data === "success") {
+          setSended(true);
+          setSending(false);
+        } else {
+          setError(true);
+          setSending(false);
+        }
+      });
   };
 
   const text = {
@@ -63,33 +68,66 @@ const Form = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <input className="w-full" placeholder={text["es"].name} {...register("name", { required: true })} />
+              <input
+                className="w-full"
+                placeholder={text["es"].name}
+                {...register("name", { required: true })}
+              />
               {errors.name && <Error />}
             </div>
             <div>
-              <input className="w-full" placeholder={text["es"].city} {...register("city")} />
+              <input
+                className="w-full"
+                placeholder={text["es"].city}
+                {...register("city")}
+              />
             </div>
             <div>
-              <input className="w-full" placeholder={text["es"].email} {...register("email", { required: true })} />
+              <input
+                className="w-full"
+                placeholder={text["es"].email}
+                {...register("email", { required: true })}
+              />
               {errors.email && <Error />}
             </div>
             <div>
-              <input className="w-full" placeholder={text["es"].location} {...register("location")} />
+              <input
+                className="w-full"
+                placeholder={text["es"].location}
+                {...register("location")}
+              />
             </div>
             <div>
-              <input className="w-full" placeholder={text["es"].phone} {...register("phone", { required: true })} />
+              <input
+                className="w-full"
+                placeholder={text["es"].phone}
+                {...register("phone", { required: true })}
+              />
               {errors.phone && <Error />}
             </div>
             <div>
-              <input className="w-full" placeholder={text["es"].country} {...register("country")} />
+              <input
+                className="w-full"
+                placeholder={text["es"].country}
+                {...register("country")}
+              />
             </div>
           </div>
-          <textarea className="w-full mt-4 block" cols="30" rows="8" placeholder={text["es"].message} {...register("message")} />
+          <textarea
+            className="w-full mt-4 block"
+            cols="30"
+            rows="8"
+            placeholder={text["es"].message}
+            {...register("message")}
+          />
 
           {sending ? (
             <BeatLoader className="mt-6" />
           ) : (
-            <button type="submit" className="font-bold bg-primary text-white hover:shadow-xl transition m-0 border-0">
+            <button
+              type="submit"
+              className="font-bold bg-primary text-white hover:shadow-xl transition m-0 border-0"
+            >
               Enviar
             </button>
           )}
